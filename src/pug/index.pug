@@ -1,0 +1,150 @@
+doctype html
+html(lang=en)
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=3.0 minimum-scale=1.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+        <link rel="icon" href="img/favicon.png" type="image/x-icon">
+        <title>Portfolio Yaroslav Petrushenko</title>
+        <link rel="stylesheet" href="css/styles.css">
+    body 
+        .overflow-hidden
+            .header#home
+                .header-section
+                    .top.flex.wrapper
+                        .logo
+                            a(href="#home") Y.Petrushenko
+                        .flex
+                            .hamburger
+                                span 
+                                span 
+                                span 
+                            nav.nav-menu.flex 
+                                ul.top-menu.flex#menu
+                                    li
+                                        a.menu-link(href="#home") Home
+                                    li
+                                        a.menu-link(href="#about") About
+                                    li
+                                        a.menu-link(href="#skills") Skills
+                                    li
+                                        a.menu-link(href="#projects") Projects
+                                    li
+                                        a.menu-link(href="#contact") Contact
+                .home-title
+                    .welcome
+                        h1 Hi!
+                        h2 My name is Yaroslav Petrushenko.
+                        p I`m Front-end developer
+            .about-me-info#about
+                h2.about-title About me
+                .about.wrapper.wrapper
+                    .information-about-me
+                        h2 Get to know me!
+                        p Hello, my name is Yaroslav Petrushenko. I like to learn new things, recently I discovered the beautiful, limitless world of programming.
+                        p I am looking for an entry level position in a company to be hardworking, learn, grow and develop in the long term.
+                        p I am open to work opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience, then don't hesitate to contact me.
+                        h2.education Education
+                        p - Hashtag academy, educational program: Front-end developer.
+                        p - Sumy National Agrarian University. Professional qualification: civil engineer.
+                        p - Sumy National Agrarian University. Professional qualification: Bachelor's degree in Civil Engineering.
+                    .my-photo
+                        img(src="img/my_photo.png" alt="")
+            .skills#skills
+                .my-skills
+                    h2 My Skills
+                .skils-progress.wrapper
+                    .progress.flex
+                        .progress-item
+                            canvas#front(width="1" height="1")
+                            p HTML/CSS/JavaScript
+                        .progress-item
+                            canvas#ajax(width="1" height="1")
+                            p Node.js/Ajax
+                        .progress-item
+                            canvas#libery(width="1" height="1")
+                            p Bootstrap, jQuery
+                        .progress-item
+                            canvas#prepro(width="1" height="1")
+                            p SASS/Pug/Galp
+                        .progress-item
+                            canvas#back(width="1" height="1")
+                            p PHP
+                        .progress-item
+                            canvas#git(width="1" height="1")
+                            p Version Control/Git
+            .portfolio#projects
+                .my-works
+                    h2 My recent works
+                .my-first-projects.wrapper
+                    figure.projects
+                        figcaption
+                            .img-projects
+                                img(src="img/Sea.png" alt="")
+                            .description-projects
+                                h2 Sea
+                                h3 Technology
+                                p SassPug, Bootstrap
+                                p.descr Only responsive layout, various hover effects, bootstrap.
+                                a(href="https://yaroslav-petrushenko.github.io/sea-adventures/") View site
+                    figure.projects
+                        figcaption 
+                            .img-projects
+                                img(src="img/Startup.png" alt="")
+                            .description-projects
+                                h2 Startup
+                                h3 Technology:
+                                p SassPug, Vanilla JS
+                                p.descr Responsive carousel with many settings, a small online store, various animations, parallax, zoom inside the image, popup.
+                                a(href="https://yaroslav-petrushenko.github.io/Startup/") View site
+            .contacts#contact
+                h2 Contacts
+                p.info= $info
+                .container-form.wrapper
+                    form.flex.flex-column#my-form(action="" method="post" )
+                        label.label(for="userName")
+                            input.input#name(type="text" for="userName" value='' name="name" placeholder="Your name") 
+                        label.label(for="mailUser" )
+                            input.input#email(type="mail" for="mailUser" value='' name="email"  placeholder="Your email" )
+                        label.label(for="messageUser")
+                            textarea.textarea#message(for="messageUser" value='' name="message" placeholder="Your message")
+                        .btn-section 
+                            button.btn-form(type="submit") Submit
+            .social-links 
+                .git
+                    a(href="https://github.com/Yaroslav-Petrushenko") 
+                        <svg viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7381 0.333344C7.67448 0.333344 0.333374 7.67445 0.333374 16.738C0.333374 23.9971 5.02922 30.1284 11.5501 32.302C12.3703 32.4455 12.6779 31.9534 12.6779 31.5228C12.6779 31.1332 12.6574 29.8413 12.6574 28.4674C8.53572 29.2261 7.46942 27.4626 7.14133 26.5399C6.95677 26.0682 6.15704 24.6123 5.45984 24.2227C4.88568 23.9151 4.06544 23.1564 5.43934 23.1359C6.73121 23.1154 7.65397 24.3252 7.96156 24.8174C9.43798 27.2986 11.7962 26.6014 12.7394 26.1707C12.883 25.1044 13.3136 24.3867 13.7852 23.9766C10.1352 23.5665 6.32109 22.1516 6.32109 15.8768C6.32109 14.0928 6.95677 12.6164 8.00257 11.468C7.83853 11.0579 7.26436 9.37644 8.16662 7.12079C8.16662 7.12079 9.54051 6.69017 12.6779 8.80227C13.9903 8.43316 15.3847 8.24861 16.7791 8.24861C18.1735 8.24861 19.5679 8.43316 20.8803 8.80227C24.0177 6.66966 25.3916 7.12079 25.3916 7.12079C26.2938 9.37644 25.7197 11.0579 25.5556 11.468C26.6014 12.6164 27.2371 14.0723 27.2371 15.8768C27.2371 22.1721 23.4025 23.5665 19.7524 23.9766C20.3471 24.4893 20.8598 25.4735 20.8598 27.0115C20.8598 29.2056 20.8393 30.9691 20.8393 31.5228C20.8393 31.9534 21.1468 32.4661 21.9671 32.302C28.4469 30.1284 33.1428 23.9766 33.1428 16.738C33.1428 7.67445 25.8017 0.333344 16.7381 0.333344Z" fill="white" fill-opacity="0.5"/>
+                        </svg>
+                .telegram 
+                    a(href="https://t.me/Petrushenko_Y") 
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" />
+                        <path d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z" fill="white"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_87_7225" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#37BBFE"/>
+                        <stop offset="1" stop-color="#007DBB"/>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+                .linkedin
+                    a(href="https://www.linkedin.com/in/yaroslav-petrushenko-32b245250/") 
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="24" fill="#0077B5"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z" fill="white"/>
+                        </svg>
+            .copyright
+                p © copyright 2023 Y.Petrushenko
+            button.scrolTop#scrolTop Up
+
+        script(src="js/scripts.js")
