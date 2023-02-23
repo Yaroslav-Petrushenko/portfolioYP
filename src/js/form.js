@@ -1,29 +1,69 @@
-// Отримуємо форму та її елементи
-const form = document.querySelector('#my-form');
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+const form = document.querySelector('#form');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
 
-// Додаємо подію submit до форми
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Зупиняємо стандартну поведінку форми
 
-  // Створюємо новий об'єкт FormData для збереження даних форми
-  const formData = new FormData();
-  formData.append('name', nameInput.value);
-  formData.append('email', emailInput.value);
-  formData.append('message', messageInput.value);
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-  // Відправляємо дані форми за допомогою AJAX
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !email || !message) {
+    nameInput.classList.add('plase_color')
+    emailInput.classList.add('plase_color')
+    messageInput.classList.add('plase_color')
+    // alert('Будь ласка, заповніть усі поля.');
+    return;
+  }
+  
+  if (!isValidEmail(email)) {
+    alert('Будь ласка, введіть коректну адресу електронної пошти.');
+    return;
+  }
+
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', './php/index.php');
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      alert('Повідомлення надіслано. Дякуємо!');
-    } else {
-      alert('Виникла помилка під час відправки повідомлення.');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        // alert('Повідомлення надіслано. Дякуємо!');
+        nameInput.classList.remove('plase_color')
+        emailInput.classList.remove('plase_color')
+        messageInput.classList.remove('plase_color')
+      } else {
+        alert('Виникла помилка під час відправки повідомлення.');
+      }
     }
   };
+  xhr.open('POST', 'php/index.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  let formData = `name=${name}&email=${email}&message=${message}`;
   xhr.send(formData);
 });
+
+
+// form.addEventListener('submit', function (event) {
+//   event.preventDefault();
+
+//   const xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState === 4) {
+//       if (xhr.status === 200) {
+//         alert('Повідомлення надіслано. Дякуємо!');
+//       } else {
+//         alert('Виникла помилка під час відправки повідомлення.');
+//       }
+//     }
+//   };
+//   xhr.open('POST', 'php/index.php', true);
+//   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//   let formData = `name=${nameInput.value}&email=${emailInput.value}&message=${messageInput.value}`;
+//   xhr.send(formData);
+// });
 

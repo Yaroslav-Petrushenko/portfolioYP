@@ -1,44 +1,22 @@
 <?php
-session_start();
-$info = '';
-
-if (isset($_POST['submit'])) {
-    // Отримуємо дані з форми
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    
-    // Перевіряємо валідність email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $info = "Неправильний формат електронної пошти";
-        exit();
+if (isset($_POST)) {
+    $to = 'igorovica@gmail.com';
+    $subject = 'From account@dropex.net';
+    $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=' . PHP_EOL;
+    $message = '<table cellpadding=\'0\' cellspacing=\'0\' border=\'0\'>';
+    foreach($_POST as $key => $value) {
+        $message .= '<tr><td align=\'right\'>'.$key.':</td><td>&nbsp;<b>'.Trim(stripslashes($value)).'</b></td></tr>';
     }
-    
-    // Перевіряємо ліміт повідомлень
-    if (!isset($_SESSION['message_count'])) {
-        $_SESSION['message_count'] = 0;
+    $message .= '</table>';
+    $headers = 'From: account@dropex.net' . PHP_EOL . 'Reply-To: account@dropex.net' . PHP_EOL . 'Content-Type: text/html; charset=UTF-8' . PHP_EOL . 'MIME-Version: 1.0' . PHP_EOL . 'Content-Transfer-Encoding: 8bit ' . PHP_EOL;
+
+    $mail = mail($to, $subject, $message, $headers);
+
+    if($mail) {
+        print_r(200);
+    } else {
+        print_r(400);
     }
-    if ($_SESSION['message_count'] >= 5) {
-        $info = "Досягнуто ліміт відправки повідомлень";
-        exit();
-    }
-    
-    // Встановлюємо email отримувача
-    $to_email = "igorovica@gmail.com";
-
-    // Встановлюємо тему та вміст повідомлення
-    $subject = "Нове повідомлення від $name";
-    $body = "Ім'я: $name\nEmail: $email\n\nПовідомлення:\n$message";
-
-    // Відправляємо email
-    $headers = "From: $email";
-    mail($to_email, $subject, $body, $headers);
-
-    // Збільшуємо лічильник повідомлень
-    $_SESSION['message_count']++;
-
-    // Повертаємо користувача на поточну сторінку
-    header('Location: ' . $_SERVER['REQUEST_URI']);
-    exit();
 }
+
 ?>

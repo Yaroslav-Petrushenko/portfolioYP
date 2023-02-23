@@ -109,7 +109,7 @@ html(lang=en)
                 h2 Contacts
                 p.info= $info
                 .container-form.wrapper
-                    form.flex.flex-column#my-form(action="" method="post" )
+                    form.flex.flex-column#form(action="" method="post" autocomplete="off")
                         label.label(for="userName")
                             input.input#name(type="text" for="userName" value='' name="name" placeholder="Your name") 
                         label.label(for="mailUser" )
