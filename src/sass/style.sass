@@ -434,7 +434,7 @@ canvas
     background: linear-gradient(90deg, #202020, #100000)	
     padding: 100rem 0rem
     h2
-        padding-bottom: 50rem
+        padding-bottom: 20rem
         color: #ffffff
         font-weight: 300
         font-size: 35rem
@@ -446,11 +446,14 @@ canvas
     margin: 0 auto    
 
 .info
+    padding-bottom: 20rem
     font-size: 16rem
     color: #909096
     font-weight: 400
     font-family: 'Roboto', sans-serif
     text-align: center
+    opacity: 0
+
 form 
     display: flex
     flex-direction: column
@@ -473,9 +476,11 @@ form
     border: none 
     border-bottom: 1rem solid #787A91 
     font-family: 'Roboto', sans-serif
+
+
 .plase_color
-    border-bottom: 1rem solid #d63535
-        // color: #d63535
+    &::placeholder
+        color: #d63535
 
 input::-webkit-input-placeholder
     background-color: transparent !important

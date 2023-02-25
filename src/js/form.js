@@ -6,6 +6,7 @@ const form = document.querySelector('#form');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
+const info = document.querySelector('.info');
 
 
 form.addEventListener('submit', function (event) {
@@ -22,7 +23,7 @@ form.addEventListener('submit', function (event) {
     // alert('Будь ласка, заповніть усі поля.');
     return;
   }
-  
+
   if (!isValidEmail(email)) {
     alert('Будь ласка, введіть коректну адресу електронної пошти.');
     return;
@@ -32,6 +33,7 @@ form.addEventListener('submit', function (event) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
+        info.style.opacity = 1
         // alert('Повідомлення надіслано. Дякуємо!');
         nameInput.classList.remove('plase_color')
         emailInput.classList.remove('plase_color')
@@ -66,4 +68,3 @@ form.addEventListener('submit', function (event) {
 //   let formData = `name=${nameInput.value}&email=${emailInput.value}&message=${messageInput.value}`;
 //   xhr.send(formData);
 // });
-
