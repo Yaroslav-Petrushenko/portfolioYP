@@ -48,23 +48,3 @@ form.addEventListener('submit', function (event) {
   let formData = `name=${name}&email=${email}&message=${message}`;
   xhr.send(formData);
 });
-
-
-// form.addEventListener('submit', function (event) {
-//   event.preventDefault();
-
-//   const xhr = new XMLHttpRequest();
-//   xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4) {
-//       if (xhr.status === 200) {
-//         alert('Повідомлення надіслано. Дякуємо!');
-//       } else {
-//         alert('Виникла помилка під час відправки повідомлення.');
-//       }
-//     }
-//   };
-//   xhr.open('POST', 'php/index.php', true);
-//   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//   let formData = `name=${nameInput.value}&email=${emailInput.value}&message=${messageInput.value}`;
-//   xhr.send(formData);
-// });
