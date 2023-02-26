@@ -19,6 +19,7 @@ if (isset($_POST)) {
     }
     $current_time = time();
     $hour_ago = $current_time - 3600; // 1 година тому
+	$formatted_time = date('Y-m-d H:i:s', $current_time);
     $messages_sent_within_hour = array_filter($messages_sent, function($message) use ($ip_address, $hour_ago) {
         return ($message['ip_address'] == $ip_address && $message['time'] > $hour_ago);
     });
@@ -29,7 +30,7 @@ if (isset($_POST)) {
     // додаємо інформацію про відправлене повідомлення до масиву і зберігаємо його в файл
     $messages_sent[] = array(
         'ip_address' => $ip_address,
-        'time' => $current_time
+        'time' => $formatted_time
 	);
 	file_put_contents($file_path, serialize($messages_sent));
 	// відправка повідомлення

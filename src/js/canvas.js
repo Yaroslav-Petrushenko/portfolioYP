@@ -76,7 +76,7 @@ let sectionCanvas = document.querySelector('.skills');
 let targetLocation = sectionCanvas.getBoundingClientRect().top + window.pageYOffset; // положення цілі
 
 function checkIfFunctionShouldBeExecuted() {
-    if (!isFunctionExecuted && window.pageYOffset >= targetLocation - 200) {
+    if (!isFunctionExecuted && window.pageYOffset >= targetLocation - 600) {
     isFunctionExecuted = true;
     createScale('front', 80);
     createScale('back', 30);

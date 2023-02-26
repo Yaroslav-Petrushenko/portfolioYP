@@ -15,7 +15,7 @@ form.addEventListener('submit', function (event) {
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
   const message = messageInput.value.trim();
-
+ 
   if (!name || !email || !message) {
     nameInput.classList.add('plase_color')
     emailInput.classList.add('plase_color')

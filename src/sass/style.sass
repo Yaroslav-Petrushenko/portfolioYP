@@ -195,16 +195,18 @@ a
             &:hover::after 
                 width: 100%
 
-.home-title 
-    padding-left: 150rem
-
-
 .welcome
+    opacity: 0
+    transform: translateX(-150%)
+
+.welcome._active-anim
     position: absolute
+    opacity: 1
     left: 50%
     top: 40%
     bottom: 50%
     transform: translate(-50%, -50%)
+    transition: all 1s ease
     +media(425)
         left: 40%
         top: 40%
@@ -251,7 +253,14 @@ a
     font-family: 'Roboto', sans-serif
 
 
-.information-about-me 
+.information-about-me
+    opacity: 0
+    transform: translate(-100%,0)
+
+.information-about-me._active-anim
+    opacity: 1
+    transform: translate(0,0)
+    transition: all 1.2s ease
     padding-bottom: 100rem
     +media(768)
         width: 100%
@@ -277,6 +286,13 @@ a
     padding-top: 20rem
 
 .my-photo 
+    opacity: 0
+    transform: translate(100%,0)
+
+.my-photo._active-anim
+    opacity: 1
+    transform: translate(0,0)
+    transition: all 1.2s ease
     +media(1024)
         width: 40%
         padding-left: 20rem
@@ -353,11 +369,17 @@ canvas
         font-size: 35rem
         font-family: 'Roboto', sans-serif
 
+.my-first-projects
+    opacity: 0
+    transform: translate(0,0)
 
-.my-first-projects 
+.my-first-projects._active-anim
     display: flex
     justify-content: center
     flex-wrap: wrap
+    opacity: 1
+    transform: translate(0,0)
+    transition: all 1.7s ease
     padding-top: 100rem
 
 
@@ -482,18 +504,12 @@ form
     &::placeholder
         color: #d63535
 
-input::-webkit-input-placeholder
-    background-color: transparent !important
-
-input:-ms-input-placeholder
-    background-color: transparent !important
-
 input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill 
-  border: none
-  -webkit-text-fill-color: #fff
-  -webkit-box-shadow: 0 0 0px 1000px #1a1515 inset
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+    transition: all 5000s ease-in-out 0s
+
 
 .textarea  
     resize: vertical 
