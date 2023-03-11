@@ -49,7 +49,6 @@ const titleHello = container.querySelector("h1");
 const titleName = container.querySelector("h2");
 const titleProfession = container.querySelector("p");
 
-
 function createSpans(element) {
     const text = element.textContent;
     element.innerHTML = "";

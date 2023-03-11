@@ -84,11 +84,13 @@ html(lang=en)
             .portfolio#projects
                 .my-works
                     h2 My recent works
-                .my-first-projects.wrapper._anim-start._anim-no
+                .my-first-projects.wrapper
                     figure.projects
                         figcaption
                             .img-projects
-                                img(src="img/Sea.png" alt="portfolio Petrushenko Yaroslav Sea SassPug, Bootstrap")
+                                picture
+                                <source srcset="img/Sea.webp" type="image/webp">
+                                img(src="img/Sea.jpg" alt="portfolio Petrushenko Yaroslav Sea SassPug, Bootstrap")
                             .description-projects
                                 h2 Sea
                                 h3 Technology
@@ -98,7 +100,9 @@ html(lang=en)
                     figure.projects
                         figcaption 
                             .img-projects
-                                img(src="img/Startup.png" alt="portfolio Petrushenko Yaroslav Startup  SassPug, Vanilla JS")
+                                picture
+                                <source srcset="img/Startup.webp" type="image/webp">
+                                img(src="img/Startup.jpg" alt="portfolio Petrushenko Yaroslav Startup  SassPug, Vanilla JS")
                             .description-projects
                                 h2 Startup
                                 h3 Technology:
@@ -107,7 +111,7 @@ html(lang=en)
                                 a(href="https://yaroslav-petrushenko.github.io/Startup/") View site
             .contacts#contact
                 h2 Contacts
-                p.info The message has been sent.
+                p.info 
                 .container-form.wrapper
                     form.flex.flex-column#form(action="" method="post" autocomplete="off")
                         label.label(for="userName")

@@ -6,7 +6,6 @@ function createScale(canvasId, percent) {
     const radius = canvas.width / 2 - 10;
     const startAngle = -Math.PI / 2;
     const endAngle = startAngle + (percent / 100) * 2 * Math.PI;
-
     // Зберігаємо початкові параметри шкали
     const initialAngle = startAngle;
     const initialPercent = 0;
@@ -23,7 +22,6 @@ function createScale(canvasId, percent) {
         // Знаходимо приріст відсотків та кута, який потрібно змінити на поточному кроці анімації
         const percentChange = (endPercent - currentPercent) / animationSteps;
         const angleChange = (endAngle - currentEndAngle) / animationSteps;
-
         // Очищуємо канвас та малюємо шкалу з поточними параметрами
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
@@ -31,32 +29,25 @@ function createScale(canvasId, percent) {
         context.strokeStyle = '#ff0000';
         context.lineWidth = 10;
         context.stroke();
-
         // Оновлюємо текст з відсотками
         const text = currentPercent.toFixed() + '%';
         context.font = '27px Arial';
         const textWidth = context.measureText(text).width;
         context.fillStyle = '#fff';
         context.fillText(text, centerX - textWidth / 2, centerY + 7);
-
         // Якщо ми досягли кінцевого відсотка, зупиняємо анімацію
         if (currentPercent >= endPercent) {
             return;
         }
-
         // Оновлюємо параметри шкали та відсотки
         currentEndAngle += angleChange;
         currentPercent += percentChange;
         currentAngle += angleChange;
-        
         // Рекурсивно викликаємо функцію наступного кроку анімації через 1/60 секунди
         setTimeout(() => step(endPercent), animationDuration / animationSteps);
     };
-
     // Запускаємо анімацію
-    
     step(percent);
-    
 }
 
 const canvasEls = document.querySelectorAll('.progress-item canvas');
