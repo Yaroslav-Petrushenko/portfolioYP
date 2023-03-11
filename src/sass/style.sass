@@ -537,6 +537,29 @@ input:-webkit-autofill:active
         filter: drop-shadow(0 0 4px rgba(204, 204, 223, 0.18))
         transform: scale(1.05)
 
+
+.success-message 
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -60%)
+    padding: 20rem
+    font-size: 15rem
+    background-color: #607722
+    color: #fff
+    border-radius: 5px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+    animation: show-message 0.3s ease-in-out forwards
+    z-index: 9999
+    display: none
+
+@keyframes show-message 
+    0% 
+        transform: translate(-50%, -60%)
+        opacity: 0
+    100% 
+        transform: translate(-50%, -50%)
+        opacity: 1
 // social link
 
 .social-links
@@ -587,6 +610,9 @@ input:-webkit-autofill:active
 .scrolTop.show 
     bottom: 20px
     opacity: 1
+
+
+
 
 @keyframes arrowUp
     0%
